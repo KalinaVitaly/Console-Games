@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <chrono>
 #include <conio.h>
+#include <Windows.h>
 
 using namespace std;
 
@@ -115,6 +116,7 @@ void getPlayerInput(unsigned short& moving_direction)
 
 void print() 
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	
 	for (unsigned i = 0; i < cg_map_length + 2; ++i)
 	{
@@ -122,21 +124,30 @@ void print()
 		{
 
 			if (i == g_fruit_index.first + 1 && j == g_fruit_index.second + 1)
+			{
+				SetConsoleTextAttribute(hConsole, 2);
 				cout << "$";
+			}
 			else if (i == 0 || i == cg_map_length + 1 || j == 0 || j == cg_map_width + 1)
+			{
+				SetConsoleTextAttribute(hConsole, 4);
 				cout << "#";
+			}
 			else if (g_snake_body_index + g_snake_body_size != find(g_snake_body_index, g_snake_body_index + g_snake_body_size, make_pair(i - 1, j - 1)))
+			{
+				SetConsoleTextAttribute(hConsole, 11);
 				cout << "0";
+			}
 			else
 				cout << " ";
 		}
 		cout << endl;
 	}
 	//output snake coordinate
-	for (unsigned short i = 0; i < g_snake_body_size; ++i)
+	/*for (unsigned short i = 0; i < g_snake_body_size; ++i)
 	{
 		cout << g_snake_body_index[i].first << " : " << g_snake_body_index[i].second << endl;
-	}
+	}*/
 
 }
 
