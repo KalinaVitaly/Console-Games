@@ -115,7 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Ford.cpp" />
     <ClCompile Include="MainRace.cpp" />
+    <ClCompile Include="PlayerInput.cpp" />
+    <ClCompile Include="Random.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="Ford.h" />
+    <ClInclude Include="PlayerInput.h" />
+    <ClInclude Include="Random.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
